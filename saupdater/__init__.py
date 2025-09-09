@@ -2,7 +2,7 @@ from ._imports import *
 from .logger import Logger
 from .errors import *
 
-__version__ = "1.0.0-alpha"
+__version__ = "1.0.1"
 __all__ = ['Updater']
 
 class Updater:
@@ -53,7 +53,7 @@ class Updater:
         return (False, '', '')
 
     def _get_path(self) -> str:
-        return '\\'.join(sys.argv[0].rsplit('\\')[:-1:])
+        return os.path.dirname(os.path.abspath(sys.argv[0]))
 
     def _get_remote_origin(self) -> None:
         self._remote_origin = self._check_remote_origin()
